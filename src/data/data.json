@@ -1,0 +1,30 @@
+[
+    {
+      "id": "1",
+      "cost": "$67",
+      "picture": "https://images-na.ssl-images-amazon.com/images/I/81KHLV32stL._AC_SX466_.jpg",
+      "capacity": 4,
+      "type": "CAR"
+    },
+    {
+      "id": "2",
+      "cost": "$40",
+      "picture": "http://www.motorcycledaily.com/wp-content/uploads/2020/10/101320Topi-scaled.jpg",
+      "capacity": 2,
+      "type": "BIKE"
+    },
+    {
+      "id": "3",
+      "cost": "$20",
+      "picture": "https://lh3.googleusercontent.com/proxy/__UKaIg0oSBFXUTgcPpV9EzGob4ksRPdAdIppWjgv-3d5xrBBrEXIydmoiHcijmjv4ABvsPJnvV-UZ3BRcJYRldubKvLEyeuoMs7Tcq_1etRY31OgzKhONb2_As",
+      "capacity": 40,
+      "type": "BAS"
+    },
+    {
+      "id": "4",
+      "cost": "$15",
+      "picture": "https://img.masstransitmag.com/files/base/cygnus/mass/image/2019/12/16x9/AdobeStock_163187413.5de4599971924.png?auto=format&w=720",
+      "capacity": 200,
+      "type": "TRAIN"
+    }
+]
