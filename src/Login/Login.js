@@ -29,6 +29,7 @@ const Login = () => {
   let { from } = location.state || { from: { pathname: "/" } };
 
   const provider = new firebase.auth.GoogleAuthProvider();
+  
   const handleSignIn = () => {
     firebase.auth().signInWithPopup(provider)
     .then(res => {
@@ -40,6 +41,8 @@ const Login = () => {
         photo: photoURL
       }
       setUser(isSignedInUser)
+      setLoggedInUser(isSignedInUser);
+      history.replace(from);
       
     })
     .catch(err => {
