@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import travelData from '../data/data.json'
 import GoogleMaps from '../GoogleMaps/GoogleMaps';
+import './Booking.css'
 
 const Booking = () => {
     
@@ -29,14 +30,19 @@ const Booking = () => {
                                 {
                                     data.map(singleData => <div>
                                         <img style={{width:'100px'}} src={singleData.picture} alt=""/>
-                                        <p>{singleData.type}</p>
+                                        <ul>
+                                            <li>{singleData.type}</li>
+                                            <li>{singleData.cost}</li>
+                                            <li>{singleData.capacity}</li>
+                                        </ul>
+                                        
                                     </div> )
                                 }
                             </div> 
                             
                             
                         :  <div>
-                                <form onSubmit={handleSubmit}>
+                                <form onSubmit={handleSubmit} className="booking">
                                     <label htmlFor="form-1">Pick From</label>
                                     <br/>
                                     <input type="text" name="from-1" placeholder="Chawkbazar" required/>
@@ -51,7 +57,7 @@ const Booking = () => {
                                     <input type="date" name="" required/>
                                     <br/>
                                     <br/>
-                                    <input type="submit" onClick={()=> setBooking(!booking)} value="Search"/>
+                                    <input className="btn" type="submit" onClick={()=> setBooking(!booking)} value="Search"/>
                                 </form>
                                 
                            </div>

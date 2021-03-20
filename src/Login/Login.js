@@ -5,9 +5,12 @@ import firebaseConfig from './firebase.config';
 import './Login.css'
 import { UserContext } from '../App';
 import { useHistory, useLocation } from 'react-router';
+import './Login.css'
 
 
-firebase.initializeApp(firebaseConfig);
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+}
 
 const Login = () => {
     const [newUser, setNewUser] = useState(false)
@@ -37,7 +40,7 @@ const Login = () => {
         photo: photoURL
       }
       setUser(isSignedInUser)
-      console.log(displayName, email, photoURL)
+      
     })
     .catch(err => {
       console.log(err)
@@ -137,7 +140,7 @@ const Login = () => {
     <div style={{textAlign: 'center'}}>
        { 
     newUser  ? <div className = 'From'>
-                   <h4>Create an Account</h4>
+                   <h4 className="heading">Create an Account</h4>
                    <form onSubmit={handleSubmit}>
                        <label  htmlFor="name" >Username</label><br/>
                        <input name='name' type="text"  onBlur = {handleBlur} />
@@ -148,13 +151,13 @@ const Login = () => {
                        <label htmlFor="password">Password</label><br/>
                        <input type="password" onBlur = {handleBlur}  name="password" required/>
                        <br/>
-                       
-                       <input type="submit" value="Create an account"/>
+                       <br/>
+                       <input className="btn" type="submit" value="Create an account"/>
                    </form><br/>
-                   <p>Already have an account? <input type="button" onClick={() => setNewUser(!newUser)} name="newUser" value="Login"/> </p>
+                   <p>Already have an account? <input type="button" className="btn" onClick={() => setNewUser(!newUser)} name="newUser" value="Login"/> </p>
                </div>
              : <div className = 'From'>
-                  <h3>Login</h3>
+                  <h3 className="heading">Login</h3>
                  <form onSubmit={handleSubmit} class="">
                    <label htmlFor="email">Email</label><br/>
                    <input type="text" name="email"  onBlur = {handleBlur} required/>
@@ -163,16 +166,16 @@ const Login = () => {
                    <input type="password" onBlur = {handleBlur}  name="password" required/>
                    <br/>
                    <br/> 
-                   <input type="submit" value="Login"/>
+                   <input className="btn" type="submit" value="Login"/>
                  </form><br/>
-                 <p>Don't Have an Account? <input type="button" onClick={() => setNewUser(!newUser)} name="newUser" value="Login"/> </p>
+                 <p>Don't Have an Account? <input type="button" className="btn"  onClick={() => setNewUser(!newUser)} name="newUser" value="Create an account"/> </p>
                </div>     
   }   
      <p style={{color: 'red'}}>{user.error}</p>
      {user.success && <p style={{color: 'green'}}>User {newUser ? 'created' : 'logged in'} successfully!</p>}
      { 
-        user.isSignedIn ?<button onClick={handleSignOut}>sign out with Google</button>
-                        : <button onClick={handleSignIn}>sign in with Google</button>
+        user.isSignedIn ?<button className="btn-google" onClick={handleSignOut}>Sign out with Google</button>
+                        : <button className="btn-google" onClick={handleSignIn}>Sign in with Google</button>
       
     }
     <br/>
