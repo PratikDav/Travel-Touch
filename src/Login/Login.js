@@ -161,7 +161,7 @@ const Login = () => {
                </div>
              : <div className = 'From'>
                   <h3 className="heading">Login</h3>
-                 <form onSubmit={handleSubmit} class="">
+                 <form onSubmit={handleSubmit}>
                    <label htmlFor="email">Email</label><br/>
                    <input type="text" name="email"  onBlur = {handleBlur} required/>
                    <br/>
@@ -172,10 +172,11 @@ const Login = () => {
                    <input className="btn" type="submit" value="Login"/>
                  </form><br/>
                  <p>Don't Have an Account? <input type="button" className="btn"  onClick={() => setNewUser(!newUser)} name="newUser" value="Create an account"/> </p>
+                 
                </div>     
   }   
      <p style={{color: 'red'}}>{user.error}</p>
-     {user.success && <p style={{color: 'green'}}>User {newUser ? 'created' : 'logged in'} successfully!</p>}
+     {user.success && <p style={{color: 'green'}}>User {newUser ? 'created' : 'logged in'} successfully! Go to Login</p>}
      { 
         user.isSignedIn ?<button className="btn-google" onClick={handleSignOut}>Sign out with Google</button>
                         : <button className="btn-google" onClick={handleSignIn}>Sign in with Google</button>
